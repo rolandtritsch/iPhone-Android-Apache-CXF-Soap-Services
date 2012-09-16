@@ -1,0 +1,182 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+body {
+    background-color: rgb(197,204,211); 
+    color: black;
+    font-family: Helvetica;
+    font-size: 20px;
+    margin: 10px;
+}
+
+body > *[selected="true"] {
+    display: block;
+}
+
+h1 {
+    background: url(../images/toolBar.png) repeat-x;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 10px;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+}
+
+ul {	   
+    -webkit-border-radius: 8px;
+    background-color: white;
+    
+    border-color: rgb(217,217,217);
+    border-style: solid;
+    border-width: 1px;
+    
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    
+    margin-bottom: 17px;
+    margin-right: 10px;
+    margin-top: 0;
+    
+    padding: 0;	   
+}
+
+ul > li {	
+    border-top-color: rgb(217,217,217);
+    border-top-style: solid;
+    border-top-width: 1px;
+
+    list-style-type: none;
+    
+    padding-bottom: 14px;
+    padding-left: 10px;	
+    padding-right: 10px;		 
+    padding-top: 10px;		  
+}
+
+ul > li:first-child {
+    border-top: 0;
+}    
+
+ul > li > a {
+    color:black;
+    display: block;
+
+    margin-bottom: -12px;
+    margin-left: -8px;	 
+    margin-right: -8px;
+    margin-top: -8px;
+    
+    padding-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    
+    text-decoration: none;
+}
+
+input, select {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+/* --- custom classes --- */ 
+
+.button	{
+    border-width: 0px 14px 0px 14px;	   
+
+    color: white;
+    
+    display: block;
+    
+    font-size: 17px;
+    font-weight: bold;
+
+    line-height: 46px;	 
+
+    margin: 3px auto;
+
+    text-decoration: none;
+    text-shadow: black 0px 1px 1px;
+    
+    width: 150px;			
+}
+
+.blue {
+    -webkit-border-image: url(../images/blueButton.png) 0 14 0 14;	
+}
+
+.white {
+    -webkit-border-image: url(../images/whiteButton.png) 0 14 0 14;
+
+    color: black;
+}
+
+.black {
+    -webkit-border-image: url(../images/grayButton.png) 0 14 0 14;
+}
+
+.backButton {    
+    -webkit-border-image: url(../images/backButton.png) 0 8 0 14;
+
+    border-width: 0 8px 0 14px;
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: bold;
+    
+    height: 28px;
+    line-height: 28px;
+    
+    position: absolute;
+
+    left: 20px;
+    right: auto;
+    
+    text-decoration: none;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    
+    top: 16px;
+}
+
+.panel {
+    -webkit-box-sizing: border-box;
+
+    background: #c8c8c8 url(../images/stripes.png);
+
+    box-sizing: border-box;
+
+    display: none;
+
+    padding: 10px;
+}
+
+.withArrow {
+    background-image: url(../images/smallArrow.png); 
+    background-position: right; 
+    background-repeat: no-repeat;
+
+    margin-right: 10px;		
+    padding-right: 16px;
+}

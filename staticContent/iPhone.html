@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>CXF Samples</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" type="text/css" href="./css/iPhone.css"/>
+<script type="text/javascript" language="javascript" src="./src/iPhone.js"></script>
+<script type="text/javascript" language="javascript" src="/SimpleService?js"></script>
+<script type="text/javascript" language="javascript" src="/BeverageService?js"></script>
+<script type="text/javascript" language="javascript" src="/BankService?js"></script>
+</head>
+
+<body>
+
+<h1 id="title">CXF Samples</h1>
+
+<!-- = main samples screen -->
+
+<div class="panel" id="Main" selected="true">
+  <a class="backButton" onclick="onClickBackFromMain()"></a>
+  <ul>
+    <li><a class="withArrow" onclick="onClickSimple()">Simple</a></li>
+    <li><a class="withArrow" onclick="onClickBeverage()">Beverage</a></li>
+    <li><a class="withArrow" onclick="onClickBank()">Bank</a></li>
+<!--
+    <li><a class="withArrow" href="http://localhost:9000/CustomerService">Customer</a></li>
+-->
+    <li><a class="withArrow" href="http://10.0.2.2:9000/CustomerService">Customer</a></li>
+  </ul>
+</div>
+
+<!-- == simple samples screen -->
+
+<div class="panel" id="Main.Simple" selected="false">
+  <a class="backButton" onclick="onClickBackFromSimple()">Main</a>
+  <ul>
+    <li><a class="withArrow" onclick="onClickSimpleSayHi()">SayHi</a></li>
+    <li><a class="withArrow" onclick="onClickSimpleGreetMe()">GreetMe</a></li>
+    <li><a class="withArrow" onclick="onClickSimpleGreetMeOneWay()">GreetMeOneWay</a></li>
+    <li><a class="withArrow" onclick="onClickSimplePingMe()">PingMe</a></li>
+  </ul>
+</div>
+
+<!-- === simple sayhi screen -->
+
+<div class="panel" id="Main.Simple.SayHi" selected="false">
+  <a class="backButton" onclick="onClickBackFromSimpleSayHi()">Simple</a>
+  <center>
+  <a class="button blue" onclick="onClickSimpleSayHiInvoke()">SayHi()</a>
+  <p></p>
+  <ul><li id="sayHiResponse">- not invoked yet -</li></ul>
+  </center>
+</div>
+
+<!-- === simple greetme screen -->
+
+<div class="panel" id="Main.Simple.GreetMe" selected="false">
+  <a class="backButton" onclick="onClickBackFromSimpleGreetMe()">Simple</a>
+  <center>
+  <input id="greetMeRequest"/>
+  <p></p>
+  <a class="button blue" onclick="onClickSimpleGreetMeInvoke()">GreetMe()</a>
+  <p></p>
+  <ul><li id="greetMeResponse">- not invoked yet -</li></ul>
+  </center>
+</div>
+
+<!-- === simple greetmeoneway screen -->
+
+<div class="panel" id="Main.Simple.GreetMeOneWay" selected="false">
+  <a class="backButton" onclick="onClickBackFromSimpleGreetMeOneWay()">Simple</a>
+  <center>
+  <input id="greetMeOneWayRequestName"/>
+  <p></p>
+  <a class="button blue" onclick="onClickSimpleGreetMeOneWayInvoke()">...OneWay()</a>
+  <p></p>
+  <ul><li id="greetMeOneWayResponse">- not invoked yet -</li></ul>
+  </center>
+</div>
+
+<!-- === simple pingme screen -->
+
+<div class="panel" id="Main.Simple.PingMe" selected="false">
+  <a class="backButton" onclick="onClickBackFromSimplePingMe()">Simple</a>
+  <center>
+  <a class="button blue" onclick="onClickSimplePingMeInvoke()">PingMe()</a>
+  <p></p>
+  <ul><li id="pingMeResponse">- not invoked yet -</li></ul>
+  </center>
+</div>
+
+<!-- == beverage screen -->
+
+<div class="panel" id="Main.Beverage" selected="false">
+  <a class="backButton" onclick="onClickBackFromBeverage()">Main</a>
+  <center>
+  <select id="beverageCategory">
+    <option value="Animal">Animal</option>
+    <option value="Vegetable">Vegetable</option>
+    <option value="Mineral">Mineral</option>
+  </select>
+  <p></p>
+  <a class="button blue" onclick="onClickBeverageCategoryInvoke()">Query()</a>
+  <p></p>
+  <ul><li id="beverageResponse">- not invoked yet -</li></ul>  
+</div>
+
+<!-- == bank screen -->
+
+<div class="panel" id="Main.Bank" selected="false">
+  <a class="backButton" onclick="onClickBackFromBank()">Main</a>
+  <center>
+    <input id="bankLoginRequestUsername"/>
+    <p></p>  
+    <input id="bankLoginRequestPassword"/>
+    <p></p>  
+    <a class="button blue" onclick="onClickBankLoginInvoke()">Login</a> 
+  </center>
+</div>
+
+<!-- === bank home screen -->
+
+<div class="panel" id="Main.Bank.Home" selected="false">
+<a class="backButton" onclick="onClickBackFromBankHome()">Logout</a>
+<center>
+<p></p>
+  <a class="button white" onclick="onClickBankSetup()">Setup Payee</a>
+<p></p>
+  <a class="button blue" onclick="onClickBankPay()">Pay Payee</a>
+<p></p>
+  <a class="button black" onclick="onClickBankHistory()">History</a>
+</center>
+</div>
+
+<!-- === bank setup screen -->
+
+<div class="panel" id="Main.Bank.Setup" selected="false">
+  <a class="backButton" onclick="onClickBackFromBankSetup()">Home</a>
+  <center>
+    <input id="bankSetupRequestNewCustomer"/>
+    <p></p>  
+    <a class="button blue" onclick="onClickBankSetupInvoke()">Add</a> 
+  </center>
+</div>
+
+<!-- === bank pay screen -->
+
+<div class="panel" id="Main.Bank.Pay" selected="false">
+<a class="backButton" onclick="onClickBackFromBankPay()">Home</a>
+  <center>
+    <select id="toBankCustomer">
+      <option>dummy</option>
+    </select>
+    <p></p>
+    <input id="amountToBePayed"/>  
+    <p></p>
+    <a class="button blue" onclick="onClickBankPaymentInvoke()">Pay</a> 
+  </center>
+</div>
+
+<!-- === bank history screen -->
+
+<div class="panel" id="Main.Bank.History" selected="false">
+<a class="backButton" onclick="onClickBackFromBankHistory()">Home</a>
+<ul id="bankTransactionsResponse"><li>dummy</li></ul>
+</div>
+
+</body>
+</html>

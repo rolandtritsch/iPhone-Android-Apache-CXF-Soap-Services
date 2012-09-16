@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>CXF Demos</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.6">
+    <link rel="apple-touch-icon" href="Images/HomeScreenIcon.png">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" type="text/css" href="Parts/Transitions.css">
+    <script type="text/javascript" src="Parts/utilities.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/setup.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/Text.js" charset="utf-8"></script>
+    <script type="text/javascript" src="main.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/ButtonHandler.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/List.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/PushButton.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/Header.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/Transitions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/StackLayout.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Parts/Browser.js" charset="utf-8"></script>
+    <!------>
+    <script type="text/javascript" src="Services/cxf-utils.js"></script>
+    <script type="text/javascript" src="Services/SimpleService.js"></script>
+    <script type="text/javascript" src="Services/BeverageService.js"></script>
+    <script type="text/javascript" src="Services/BankService.js"></script>
+    <!------>
+</head>
+<body onload="load();">
+    <div apple-part="com.apple.Dashcode.part.browser" id="browser">
+        <div apple-part="com.apple.Dashcode.part.header" apple-part-locked="true" apple-style="image-theme: 1; image-shape: 3; image-button-type: 3; image-opacity: 1.00; image-top-color: 0.592156887,0.65882355,0.741176486,1; image-bottom-color: 0.411764711,0.513725519,0.635294139,1; image-radius: 0,0,0,0; image-border: 0; image-border-color: 0.529399991,0.529399991,0.529399991,1; image-border-width: 1; shine-on: 1; shine-strength: 0.08; shine-alpha-level: 0.00; shine-height: 0.50; glass-arc-height: 0.00; shadow-include-shadow: 0;" id="header" apple-group="header">
+            <div apple-part="com.apple.Dashcode.part.gobackbutton" apple-part-locked="true" class="apple-no-children dashcode-header-backbutton backButton_template" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 11; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 5,5,5,5; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" apple-template="true" id="backButton"></div>
+        </div>
+        <div apple-part="com.apple.Dashcode.part.StackLayout" apple-part-locked="true" id="stackLayout"><div id="Main" apple-part-locked="true">
+                <ul apple-part="com.apple.Dashcode.part.roundedRectangleList" id="list">
+                    <li id="listRowTemplate" apple-template="true" class="listRowTemplate_template" style="border-top-width: 0px; ">
+                        <div id="Item" apple-part="com.apple.Dashcode.part.webtext" class="apple-text apple-no-children Item_template" apple-text-overflow="ellipsis" apple-style="part-height-dependent: true;" onclick="onClickMain(event)"></div>
+                        <div id="arrow" apple-part="com.apple.Dashcode.part.box" class="arrow_template">
+                        </div>
+                    </li>
+                </ul>
+            </div><div id="Simple" apple-part-locked="true">
+                <ul apple-part="com.apple.Dashcode.part.roundedRectangleList" id="list1">
+                    <li id="listRowTemplate1" apple-template="true" class="listRowTemplate1_template" style="border-top-width: 0px; ">
+                        <div id="label" apple-part="com.apple.Dashcode.part.webtext" class="apple-text apple-no-children label_template" apple-text-overflow="ellipsis" apple-style="part-height-dependent: true;" onclick="onClickMainSimple(event)"></div>
+                        <div id="arrow1" apple-part="com.apple.Dashcode.part.box" class="arrow1_template">
+                        </div>
+                    </li>
+                </ul>
+            </div><div id="SimpleSayHi" apple-part-locked="true">
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 20,20,20,20; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="button"></div>
+                <textarea apple-part="com.apple.Dashcode.part.textarea" id="mainSimpleSayHi_Result" name="" apple-text-overflow="" disabled="disabled">!!! Hit me !!!</textarea>
+            </div><div id="SimpleGreetMe" apple-part-locked="true">
+                <input type="text" name="" value="Yoda" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="mainSimpleGreetMe_Name">
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 20,20,20,20; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="button1"></div>
+                <textarea apple-part="com.apple.Dashcode.part.textarea" id="mainSimpleGreetMe_Result" name="" apple-text-overflow="" disabled="disabled">!!! Hit me !!!</textarea>
+            </div><div id="Beverage" apple-part-locked="true">
+                <select apple-part="com.apple.Dashcode.part.inputpopupbutton" apple-style-relative="height: 20px;" id="mainBeverage_Category" apple-group="popup">
+                    <option class="apple-hidden" id="text" value="Animal">Animal</option>
+                    <option class="apple-hidden" id="text1">Vegetable</option>
+                    <option class="apple-hidden" id="text2">Mineral</option>
+                </select>
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 20,20,20,20; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="button2"></div>
+                <textarea apple-part="com.apple.Dashcode.part.textarea" id="mainBeverage_Result" name="" apple-text-overflow="" disabled="disabled">!!! Hit me !!!</textarea>
+            </div><div id="Bank" apple-part-locked="true">
+                <input type="text" name="" value="Customer_0" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="mainBankLogin_Username">
+                <input type="text" name="" value="" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="mainBankLogin_Password" disabled="disabled">
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 27,27,27,27; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="login"></div>
+            </div><div id="BankHome" apple-part-locked="true">
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 27,27,27,27; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="setupPayee"></div>
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.372577906,0.5472579,0.782608688,1; image-bottom-color: 1,1,1,1; image-radius: 27,27,27,27; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="payPayee"></div>
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.452785641,0.665070355,0.951086938,1; image-bottom-color: 1,1,1,1; image-radius: 27,27,27,27; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="history"></div>
+            </div><div id="BankSetupPayee" apple-part-locked="true">
+                <input type="text" name="" value="Yoda" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="bankSetupNewCustomer">
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 20,20,20,20; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="button3"></div>
+            </div><div id="BankPayPayee" apple-part-locked="true">
+                <select apple-part="com.apple.Dashcode.part.inputpopupbutton" apple-style-relative="height: 20px;" id="mainBankPayPayee_To" apple-group="beverageCategory1">
+                    <option class="apple-hidden" id="text3" value="dummy" style="">dummy</option>
+                </select>
+                <input type="text" name="" value="1000" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="mainBankPayPayee_Amount">
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 20,20,20,20; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="button4"></div>
+            </div><div id="BankHistory" apple-part-locked="true">
+                <ul apple-part="com.apple.Dashcode.part.edgeToEdgeList" id="mainBankHistory_Transactions">
+                    <li id="listRowTemplate2" apple-template="true" class="listRowTemplate2_template">
+                        <div id="label1" apple-part="com.apple.Dashcode.part.webtext" class="apple-text apple-no-children label1_template" apple-text-overflow="ellipsis"></div>
+                    </li>
+                </ul>
+            </div><div id="Customer" apple-part-locked="true">
+                <textarea apple-part="com.apple.Dashcode.part.textarea" id="mainCustomer_Result" name="" apple-text-overflow="ellipsis" disabled="disabled">!!! Hit Me !!!</textarea>
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 20,20,20,20; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="button5"></div>
+                <input type="text" name="" value="100" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.textfield" id="mainCustomer_Id">
+                <div apple-part="com.apple.Dashcode.part.lozengepushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 1; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.290196091,0.423529416,0.607843161,1; image-bottom-color: 1,1,1,1; image-radius: 20,20,20,20; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;" id="button6"></div>
+            </div><div id="CustomerDetails" apple-part-locked="true">
+                <div apple-part="com.apple.Dashcode.part.box" id="box">
+                    <textarea apple-part="com.apple.Dashcode.part.textarea" id="mainCustomerDetail_Id">9999</textarea>
+                    <textarea apple-part="com.apple.Dashcode.part.textarea" id="mainCustomerDetail_Name">name</textarea>
+                </div>
+            </div></div>
+    </div>
+    <div apple-part="com.apple.Dashcode.part.webtext" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis" id="footer" apple-group="text" apple-style="part-height-dependent: true;"></div>
+</body>
+</html>
